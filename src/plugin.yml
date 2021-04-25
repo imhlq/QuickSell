@@ -1,6 +1,6 @@
 name: QuickSell
 version: ${project.version}
-author: mrCookieSlime
+author: mrCookieSlime, xhou
 website: http://thebusybiscuit.github.io/
 depend: [Vault]
 softdepend: [mcMMO, Citizens, PrisonGems]

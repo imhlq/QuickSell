@@ -1,10 +1,6 @@
 package me.mrCookieSlime.QuickSell;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import io.github.thebusybiscuit.cscorelib2.item.CustomItem;
 import me.mrCookieSlime.QuickSell.utils.StringUtils;
@@ -24,7 +20,7 @@ public class PriceInfo {
 	
 	public PriceInfo(Shop shop) {
 		this.shop = shop;
-		this.prices = new HashMap<String, Double>();
+		this.prices = new LinkedHashMap<String, Double>();
 		this.order = new ArrayList<String>();
 		this.amount = QuickSell.cfg.getInt("shops." + shop.getID() + ".amount");
 		
@@ -36,7 +32,7 @@ public class PriceInfo {
 			loadParent(parent);
 		}
 		
-		info = new HashMap<String, ItemStack>();
+		info = new LinkedHashMap<String, ItemStack>();
 		for (String item: prices.keySet()) {
 			if (info.size() >= 54) break;
 			if (Material.getMaterial(item) != null) {
@@ -72,7 +68,7 @@ public class PriceInfo {
 	}
 
 	public PriceInfo(String shop) {
-		this.prices = new HashMap<String, Double>();
+		this.prices = new LinkedHashMap<String, Double>();
 		
 		for (String key: QuickSell.cfg.getConfiguration().getConfigurationSection("shops." + shop + ".price").getKeys(false)) {
 			if (!prices.containsKey(key) && QuickSell.cfg.getDouble("shops." + shop + ".price." + key) > 0.0) prices.put(key, QuickSell.cfg.getDouble("shops." + shop + ".price." + key) / amount);
