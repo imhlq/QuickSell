@@ -156,7 +156,7 @@ public class QuickSell extends JavaPlugin {
 
 		if (cfg.contains("options.open-only-shop-with-permission")) {
 			cfg.setValue("shop.enable-hierarchy", cfg.getBoolean("options.open-only-shop-with-permission"));
-			cfg.setValue("options.open-only-shop-with-permission", null);
+			// cfg.setValue("options.open-only-shop-with-permission", null);
 			cfg.save();
 		}
 
